@@ -22,7 +22,7 @@ app.post('/',(req,res)=>{
 
     res.status(201).json({
         message:"New book posted"
-    });
+    }); 
 });
 
 app.listen(3000,()=>{
