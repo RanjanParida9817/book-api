@@ -17,8 +17,13 @@ app.get('/books',(req,res)=>{
 });
 
 app.post('/',(req,res)=>{
-    
-})
+    const {id,title} = req.body;
+    books.push({id:id,title:title});
+
+    res.status(201).json({
+        message:"New book posted"
+    });
+});
 
 app.listen(3000,()=>{
     console.log("Server running at Port 3000");
