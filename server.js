@@ -3,6 +3,8 @@ const app = express();
 
 console.log("Hello");
 
+app.use(express.json());
+
 const books = [
     {id:1,title:"1984"},
     {id:2,title:"2020"}
@@ -12,6 +14,15 @@ app.get('/books',(req,res)=>{
     res.status(200).json({
         books:books
     });
+});
+
+app.post('/',(req,res)=>{
+    const {id,title} = req.body;
+    books.push({id:id,title:title});
+
+    res.status(201).json({
+        message:"New book posted"
+    }); 
 });
 
 app.listen(3000,()=>{
